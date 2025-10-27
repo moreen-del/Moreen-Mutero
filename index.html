@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moreen Mutero | Cybersecurity & Full-Stack Developer</title>
+    <meta name="description" content="Moreen Murugi Mutero - Cybersecurity Specialist & Full-Stack Developer. Building secure, scalable applications with cutting-edge cybersecurity practices.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .profile-img {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .profile-img img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text {
+            flex: 2;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+        
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .skill-category h3 i {
+            color: var(--secondary);
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            height: 200px;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .project-tags span {
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .contact-details {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-details li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-details i {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .contact-form {
+            flex: 2;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--secondary);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: #bdc3c7;
+        }
+        
+        /* Accessibility Improvements */
+        a:focus, button:focus, .form-control:focus {
+            outline: 2px solid var(--secondary);
+            outline-offset: 2px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: left 0.3s;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .btn {
+                display: block;
+                margin: 10px auto;
+                max-width: 200px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+            
+            .projects-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Moreen Mutero</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="menu-toggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Cybersecurity & Full-Stack Developer</h1>
+                <p>I build secure, scalable applications and protect digital assets with cutting-edge cybersecurity practices.</p>
+                <a href="#contact" class="btn">Get In Touch</a>
+                <a href="https://drive.google.com/file/d/1An-7NxyCSot4fsYrNo-GP1WWEjcaMSDc/view?usp=drivesdk" class="btn" id="download-resume-btn">Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="profile-img">
+                    <!-- Added alt text and loading attribute for better accessibility and performance -->
+                    <img src="profile_image.jpg" alt="Moreen Murugi Mutero - Cybersecurity Specialist" loading="lazy">
+                </div>
+                <div class="about-text">
+                    <h3>Hello! I'm MOREEN MURUGI MUTERO</h3>
+                    <p>I'm a cybersecurity specialist and full-stack developer with a background in business management and creative skills in graphic design and video editing. My diverse skill set allows me to approach problems from multiple perspectives and deliver comprehensive solutions.</p>
+                    <p>With expertise in both frontend and backend development, I create secure, efficient, and user-friendly applications. My cybersecurity knowledge ensures that all projects I work on follow best practices for data protection and system security.</p>
+                    <p>When I'm not coding or securing systems, I enjoy creating visual content through graphic design and video editing, bringing creative ideas to life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-shield-alt"></i> Cybersecurity</h3>
+                    <ul class="skill-list">
+                        <li>Network Security <span>Advanced</span></li>
+                        <li>Vulnerability Assessment <span>Advanced</span></li>
+                        <li>Penetration Testing <span>Intermediate</span></li>
+                        <li>Security Auditing <span>Advanced</span></li>
+                        <li>Incident Response <span>Intermediate</span></li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <ul class="skill-list">
+                        <li>HTML/CSS/JavaScript <span>Advanced</span></li>
+                        <li>Python <span>Advanced</span></li>
+                        <li>React <span>Intermediate</span></li>
+                        <li>Node.js <span>Intermediate</span></li>
+                        <li>SQL/Databases <span>Intermediate</span></li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-paint-brush"></i> Design & Media</h3>
+                    <ul class="skill-list">
+                        <li>Graphic Design <span>Intermediate</span></li>
+                        <li>Video Editing <span>Intermediate</span></li>
+                        <li>UI/UX Design <span>Intermediate</span></li>
+                        <li>Adobe Creative Suite <span>Intermediate</span></li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> Business & Other</h3>
+                    <ul class="skill-list">
+                        <li>Business Management <span>Advanced</span></li>
+                        <li>Project Management <span>Intermediate</span></li>
+                        <li>Technical Writing <span>Intermediate</span></li>
+                        <li>Public Speaking <span>Intermediate</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-lock fa-3x"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Secure Authentication System</h3>
+                        <p>A multi-factor authentication system with biometric verification and advanced encryption protocols.</p>
+                        <div class="project-tags">
+                            <span>Cybersecurity</span>
+                            <span>Python</span>
+                            <span>Encryption</span>
+                        </div>
+                        <a href="https://github.com/moreen-del/Project-.git" class="btn">View Details</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-shopping-cart fa-3x"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Full-stack e-commerce solution with secure payment processing and inventory management.</p>
+                        <div class="project-tags">
+                            <span>React</span>
+                            <span>JavaScript</span> <!-- Fixed typo: Java Script -> JavaScript -->
+                            <span>MongoDB</span>
+                        </div>
+                        <a href="https://github.com/moreen-del/Project-.git" class="btn">View Details</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-video fa-3x"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>TIMBA XO</h3>
+                        <p>A collection of commercial and personal video projects with motion graphics and visual effects.</p>
+                        <div class="project-tags">
+                            <span>Video Editing</span>
+                            <span>Motion Graphics</span>
+                            <span>After Effects</span>
+                        </div>
+                        <a href="https://github.com/moreen-del/Project-.git" class="btn" target="_blank" rel="noopener">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>moreenmutero@gmail.com</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>+254 741544673</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Location</strong>
+                                <p>UASIN GISHU, ELDORET - KENYA</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <!-- Fixed social media icons -->
+                        <a href="https://www.linkedin.com/in/moreen-mutero-6ba2bb292" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/1EYpqgMTPA/" target="_blank" rel="noopener" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://tiktok.com/@timbaxo" target="_blank" rel="noopener" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://instagram.com/moreenmutero" target="_blank" rel="noopener" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">Moreen Mutero</div>
+                <div class="copyright">
+                    &copy; 2024 Moreen Mutero. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle with error handling
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            // Smooth Scrolling with error handling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#' || !targetId) return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('header').offsetHeight || 80;
+                        window.scrollTo({
+                            top: targetElement.offsetTop - headerHeight,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (navLinks) {
+                            navLinks.classList.remove('active');
+                        }
+                    }
+                });
+            });
+            
+            // Resume Download with improved functionality
+            const downloadResumeBtn = document.getElementById('download-resume-btn');
+            if (downloadResumeBtn) {
+                downloadResumeBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const resumeUrl = 'https://drive.google.com/uc?export=download&id=1An-7NxyCSot4fsYrNo-GP1WWEjcaMSDc';
+                    
+                    // Create a temporary anchor element to trigger download
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = resumeUrl;
+                    downloadLink.setAttribute('download', 'Moreen_Mutero_Resume.pdf');
+                    downloadLink.setAttribute('target', '_blank');
+                    downloadLink.style.display = 'none';
+                    
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+                });
+            }
+            
+            // Contact Form Submission with validation
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Basic validation
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const message = document.getElementById('message').value.trim();
+                    
+                    if (!name || !email || !message) {
+                        alert('Please fill in all required fields.');
+                        return;
+                    }
+                    
+                    // Email validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        alert('Please enter a valid email address.');
+                        return;
+                    }
+                    
+                    alert('Thank you for your message, ' + name + '! I will get back to you soon.');
+                    this.reset();
+                });
+            }
+            
+            // Navbar background on scroll
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (header) {
+                    if (window.scrollY > 100) {
+                        header.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
+                        header.style.backdropFilter = 'blur(10px)';
+                    } else {
+                        header.style.backgroundColor = 'var(--primary)';
+                        header.style.backdropFilter = 'none';
+                    }
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            if (navLinks) {
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
